@@ -1,0 +1,6 @@
+@(name: String)(implicit request: RequestHeader)
+
+<h1>Hello @name</h1>
+
+<a href="@routes.RoutingController.relative(name)">Absolute Link</a><br/>
+<a href="@routes.RoutingController.relativeDemo.relative">Relative Link</a>

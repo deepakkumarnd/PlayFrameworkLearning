@@ -60,5 +60,15 @@ class RoutingController @Inject()(val controllerComponents: ControllerComponents
     Ok(s"Path for this action is ${routes.RoutingController.reverseRouting()}")
   }
 
+  // Relative routing
+  // Note: The current request is passed to the view template implicitly by declaring an implicit request inside the view
+  def relative(name: String) = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.relative(name))
+  }
+
+  def relativeDemo = Action {
+    Ok("Relative demo")
+  }
+
 
 }

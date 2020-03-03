@@ -53,8 +53,11 @@ GET     /routing/parameter              controllers.RoutingController.parameter(
 GET     /routing/optional    controllers.RoutingController.optionalParameter(version: Option[String])
 GET     /routing/list-parameters        controllers.RoutingController.listParameter(item: List[String])
 GET     /routing/reverse-route                 controllers.RoutingController.reverseRouting
-
-# Relative routing
+# Use a different router for the path /api
+# ->      /api                        api.MyRouter
+# Relative routes
+GET     /routing/relative/:name               controllers.RoutingController.relative(name: String)
+GET     /routing/relativeDemo                 controllers.RoutingController.relativeDemo
 
 
 # Default controller
