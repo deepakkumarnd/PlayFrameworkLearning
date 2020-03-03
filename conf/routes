@@ -24,3 +24,34 @@ GET     /responses/old-action       controllers.StandardResponsesController.oldA
 GET     /responses/new-action       controllers.StandardResponsesController.newAction
 GET     /responses/todo             controllers.StandardResponsesController.actionTobeImplemented
 
+# Routing experiments
+# Interestingly the following types work for play as parameters
+# String
+# Int
+# Long
+# Double
+# Float
+# Boolean
+# UUID
+# AnyVal wrappers for other supported types
+GET     /routing/echo/:content      controllers.RoutingController.echo(content: String)
+GET     /routing/page/:pageNo       controllers.RoutingController.page(pageNo: Int)
+# Get the page by name
+GET     /routing/pagebyname       controllers.RoutingController.pageByName(pagename = "home")
+GET     /routing/pagebyname/:pagename       controllers.RoutingController.pageByName(pagename: String)
+# Get the first page by default
+GET     /routing/page               controllers.RoutingController.page(pageNo: Int ?= 1)
+GET     /routing/getpage/:pageNo      controllers.RoutingController.getPage(pageNo: Int)
+# This is a modifier, here it skips CSRF token verification
++ nocsrf
+POST    /routing/skip-csrf          controllers.RoutingController.skipCsrfFilter
+# Matching multiple parts separated by /
+GET     /routing/download/*filepath    controllers.RoutingController.multiPathMatch(filepath)
+# Parameter
+GET     /routing/parameter              controllers.RoutingController.parameter(name: String, age: Int)
+# Optional parameters
+GET     /routing/optional    controllers.RoutingController.optionalParameter(version: Option[String])
+GET     /routing/list-parameters        controllers.RoutingController.listParameter(item: List[String])
+
+
+
