@@ -10,4 +10,14 @@ GET     /                           controllers.HomeController.index
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
+# Server Ping & Static text response
 GET     /ping                       controllers.PingController.ping
+
+# Standard HTTP responses
+
+GET     /responses/ok               controllers.StandardResponsesController.okResponse
+GET     /responses/not-found        controllers.StandardResponsesController.notFound
+GET     /responses/bad-request      controllers.StandardResponsesController.badRequest
+GET     /responses/5xx              controllers.StandardResponsesController.internalServerError
+GET     /responses/4xx              controllers.StandardResponsesController.custoemStatusResponse
+
