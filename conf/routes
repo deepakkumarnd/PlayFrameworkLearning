@@ -20,4 +20,7 @@ GET     /responses/not-found        controllers.StandardResponsesController.notF
 GET     /responses/bad-request      controllers.StandardResponsesController.badRequest
 GET     /responses/5xx              controllers.StandardResponsesController.internalServerError
 GET     /responses/4xx              controllers.StandardResponsesController.custoemStatusResponse
+GET     /responses/old-action       controllers.StandardResponsesController.oldAction
+GET     /responses/new-action       controllers.StandardResponsesController.newAction
+GET     /responses/todo             controllers.StandardResponsesController.actionTobeImplemented
 

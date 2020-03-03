@@ -42,4 +42,16 @@ class StandardResponsesController @Inject()(val controllerComponents: Controller
   def custoemStatusResponse = Action { implicit request: Request[AnyContent] =>
     Status(420) ("420 Thats strange, Did you try something weired ?")
   }
+
+  // 302 Redirect response
+
+  def oldAction = Action { implicit request: Request[AnyContent] =>
+    Redirect("/responses/new-action", MOVED_PERMANENTLY)
+  }
+
+  def newAction = Action { implicit request: Request[AnyContent] =>
+    Ok("New action")
+  }
+
+  def actionTobeImplemented = TODO
 }
