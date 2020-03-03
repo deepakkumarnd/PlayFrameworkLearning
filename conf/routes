@@ -68,4 +68,15 @@ GET   /clients    controllers.Default.error
 GET   /posts      controllers.Default.todo
 
 
+# Response formats and modifications
 
+GET     /response/text               controllers.ResponseController.textResponse
+GET     /response/xml                controllers.ResponseController.xmlResponse
+GET     /response/html               controllers.ResponseController.htmlResponse
+GET     /response/headers            controllers.ResponseController.httpHeaders
+
+# Setting and removing cookie
+GET     /response/set-cookie         controllers.ResponseController.setCookie
+GET     /response/unset-cookie         controllers.ResponseController.unsetCookie
+# Using custom charset in the response
+GET     /response/charset            controllers.ResponseController.charset
