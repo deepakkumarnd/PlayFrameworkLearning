@@ -52,6 +52,17 @@ GET     /routing/parameter              controllers.RoutingController.parameter(
 # Optional parameters
 GET     /routing/optional    controllers.RoutingController.optionalParameter(version: Option[String])
 GET     /routing/list-parameters        controllers.RoutingController.listParameter(item: List[String])
+GET     /routing/reverse-route                 controllers.RoutingController.reverseRouting
+
+# Relative routing
+
+
+# Default controller
+# Play includes a Default controller which provides a handful of useful actions.
+GET   /about      controllers.Default.redirect(to = "https://www.playframework.com/")
+GET   /orders     controllers.Default.notFound
+GET   /clients    controllers.Default.error
+GET   /posts      controllers.Default.todo
 
 
 

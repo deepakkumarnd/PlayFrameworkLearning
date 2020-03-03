@@ -7,6 +7,8 @@ import play.api.mvc._
 // Here we experiment with different types of routing in play framework
 // Play supports all the standard HTTP methods such as GET, PATCH, POST, PUT, DELETE, HEAD
 
+// Note: Many routes can match the same request. If there is a conflict, the first route (in declaration order) is used.
+
 @Singleton
 class RoutingController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
 
@@ -51,5 +53,12 @@ class RoutingController @Inject()(val controllerComponents: ControllerComponents
   def listParameter(items:  List[String])  = Action { implicit request: Request[AnyContent] =>
     Ok(s"You have provided a list of the following: ${items}")
   }
+
+
+  def reverseRouting = Action { implicit request: Request[AnyContent] =>
+    // You can access the URL from the controller.routes class
+    Ok(s"Path for this action is ${routes.RoutingController.reverseRouting()}")
+  }
+
 
 }
