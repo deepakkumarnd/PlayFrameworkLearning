@@ -88,3 +88,11 @@ GET     /session-and-flash/update           controllers.SessionAndFlashControlle
 GET     /session-and-flash/remove           controllers.SessionAndFlashController.removeSession
 GET     /session-and-flash/clear            controllers.SessionAndFlashController.clearSession
 GET     /session-and-flash/flash            controllers.SessionAndFlashController.showFlash
+
+# Body parsers
+POST     /body-parser/json                  controllers.BodyParserController.jsonContent
+POST     /body-parser/formdata              controllers.BodyParserController.formData
+POST     /body-parser/xml                   controllers.BodyParserController.xmlData
+POST     /body-parser/multipartform         controllers.BodyParserController.multipartForm
+POST     /body-parser/explicit-json         controllers.BodyParserController.explicitJsonParser
+POST     /body-parser/fileupload            controllers.BodyParserController.uploadFile
