@@ -80,3 +80,11 @@ GET     /response/set-cookie         controllers.ResponseController.setCookie
 GET     /response/unset-cookie         controllers.ResponseController.unsetCookie
 # Using custom charset in the response
 GET     /response/charset            controllers.ResponseController.charset
+
+# Sessions and flash
+GET     /session-and-flash/create           controllers.SessionAndFlashController.createSession
+GET     /session-and-flash/read             controllers.SessionAndFlashController.readSession
+GET     /session-and-flash/update           controllers.SessionAndFlashController.addSession
+GET     /session-and-flash/remove           controllers.SessionAndFlashController.removeSession
+GET     /session-and-flash/clear            controllers.SessionAndFlashController.clearSession
+GET     /session-and-flash/flash            controllers.SessionAndFlashController.showFlash

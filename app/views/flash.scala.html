@@ -1,0 +1,4 @@
+@()(implicit flash: Flash)
+
+<p>HTML Page</p>
+@flash.get("alert").getOrElse("Flash not set")
