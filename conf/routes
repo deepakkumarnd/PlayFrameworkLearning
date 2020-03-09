@@ -100,3 +100,6 @@ POST     /body-parser/fileupload            controllers.BodyParserController.upl
 # Action composition
 
 GET     /action-compose/builder             controllers.ActionComposerController.index
+
+# Content negotiation
+GET     /content-negotiation/get-content    controllers.ContentNegotiationController.index
