@@ -96,3 +96,7 @@ POST     /body-parser/xml                   controllers.BodyParserController.xml
 POST     /body-parser/multipartform         controllers.BodyParserController.multipartForm
 POST     /body-parser/explicit-json         controllers.BodyParserController.explicitJsonParser
 POST     /body-parser/fileupload            controllers.BodyParserController.uploadFile
+
+# Action composition
+
+GET     /action-compose/builder             controllers.ActionComposerController.index
