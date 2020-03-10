@@ -103,3 +103,6 @@ GET     /action-compose/builder             controllers.ActionComposerController
 
 # Content negotiation
 GET     /content-negotiation/get-content    controllers.ContentNegotiationController.index
+
+# Error handling
+GET     /error-handling                     controllers.ErrorHandlerControll.index
