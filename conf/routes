@@ -110,3 +110,7 @@ GET     /error-handling                     controllers.ErrorHandlerControll.ind
 # Twirl templating
 GET     /twirl/tasks                        controllers.TwirlTemplatingController.index
 GET     /twirl/task                         controllers.TwirlTemplatingController.show
+
+# Configuration handling
+GET     /configuration/list                 controllers.ConfigController.index
+GET     /configuration/db                   controllers.ConfigController.db
