@@ -65,7 +65,7 @@ GET     /routing/relativeDemo                 controllers.RoutingController.rela
 GET   /about      controllers.Default.redirect(to = "https://www.playframework.com/")
 GET   /orders     controllers.Default.notFound
 GET   /clients    controllers.Default.error
-GET   /posts      controllers.Default.todo
+GET   /todo       controllers.Default.todo
 
 
 # Response formats and modifications
@@ -114,3 +114,7 @@ GET     /twirl/task                         controllers.TwirlTemplatingControlle
 # Configuration handling
 GET     /configuration/list                 controllers.ConfigController.index
 GET     /configuration/db                   controllers.ConfigController.db
+
+# Simple cred posts with cassandra db
+
+GET     /posts                              controllers.PostsController.index

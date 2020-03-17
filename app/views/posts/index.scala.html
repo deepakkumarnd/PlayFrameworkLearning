@@ -1,0 +1,12 @@
+@(posts: Seq[Post])
+
+@application("Twirl templating") {
+<ul>
+    @for( post <- posts) {
+    <li>
+        <legend>@post.title</legend>
+        <p>@post.content</p>
+    </li>
+    }
+</ul>
+}
