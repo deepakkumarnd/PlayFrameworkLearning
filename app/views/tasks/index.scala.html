@@ -1,0 +1,9 @@
+@(tasks: List[String])
+
+@application("Twirl templating") {
+  <ul>
+    @for( task <- tasks) {
+      <li>@task</li>
+    }
+  </ul>
+}

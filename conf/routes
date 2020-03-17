@@ -106,3 +106,7 @@ GET     /content-negotiation/get-content    controllers.ContentNegotiationContro
 
 # Error handling
 GET     /error-handling                     controllers.ErrorHandlerControll.index
+
+# Twirl templating
+GET     /twirl/tasks                        controllers.TwirlTemplatingController.index
+GET     /twirl/task                         controllers.TwirlTemplatingController.show

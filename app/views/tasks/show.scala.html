@@ -1,0 +1,10 @@
+@(task: Map[String, String])
+
+@application("Twirl templating") {
+  <div>@task("name")</div>
+  <div>@task("desc")</div>
+  <br/>
+
+  <p>How do you use an [at] symbol?</p>
+  <div>me@@example.com started with the task @task("name")</div>
+}
