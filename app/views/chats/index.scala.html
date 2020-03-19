@@ -1,0 +1,13 @@
+@(wsUrl: String)
+@main("Group chat using WebSocket") {
+    <h1>Welcome to Group Chat!</h1>
+    <input type="hidden" id="chat-route" value="@wsUrl" />
+    <div class="chat-input">
+        <input type="text" id="chat-input"/>
+    </div>
+    <br/>
+    <div class="chat-text">
+        <textarea id="chat-text" contenteditable="false" rows="30" cols="60"></textarea>
+    </div>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/chat.js")" />
+}

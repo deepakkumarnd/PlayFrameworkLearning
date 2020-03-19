@@ -118,3 +118,7 @@ GET     /configuration/db                   controllers.ConfigController.db
 # Simple cred posts with cassandra db
 
 GET     /posts                              controllers.PostsController.index
+
+# WebSocket chat application
+GET     /chat                               controllers.ChatController.index
+GET     /chat/ws                            controllers.ChatController.ws
