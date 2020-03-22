@@ -8,14 +8,25 @@ import config.CassandraConfig
 import javax.inject.{Inject, Singleton}
 import play.api.Configuration
 import models.Post
+import scala.concurrent.{ExecutionContext, Future}
+import scala.compat.java8.FutureConverters._
+import scala.jdk.CollectionConverters._
 
 @Singleton
-class PostDao @Inject()(config: Configuration) {
+class PostDao @Inject()(config: Configuration)(implicit ec: ExecutionContext) {
   def all: Seq[Post] = {
     val results: ResultSet = db.execute("SELECT * from posts LIMIT 10")
     toPosts(results, List())
   }
 
+  def getAllPosts: Future[Seq[Post]] = {
+    db.executeAsync("SELECT * from posts LIMIT 10").toScala.map { rs =>
+      rs.currentPage.iterator.asScala.map { row =>
+        Post(row.getUuid(0), row.getString("title"), row.getString("content"))
+      }.toSeq
+    }
+  }
+  
   def toPosts(results: ResultSet, acc: List[Post]): Seq[Post] = {
     val it: util.Iterator[Row] = results.iterator()
 
