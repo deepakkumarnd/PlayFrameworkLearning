@@ -8,6 +8,7 @@ import play.api.data.Forms._
 import play.api.data.validation.Constraints._
 
 import formdata.RegistrationForm
+import models.User
 // Using forms and validations
 
 @Singleton
@@ -33,18 +34,26 @@ class RegistrationsController @Inject()(val cc: ControllerComponents) extends Ab
       formWithError => {
         BadRequest(views.html.registrations.start(formWithError))
       },
-      data => {
-        println("%%%%%%%%%%%%%%%%%%")
-        println(data)
-        Redirect(routes.RegistrationsController.show)
+      formData => {
+        val user = buildUser(formData)
+        println(user)
+        Redirect(routes.RegistrationsController.show())
       }
     )
-
-    Ok("ok")
   }
 
   def show() = Action { implicit request: Request[AnyContent] =>
     Ok("Success")
+  }
+
+  private def buildUser(formData: RegistrationForm): User = {
+    User(
+      formData.email,
+      "",
+      formData.name,
+      (if (formData.gender == "male") 'M' else 'F'),
+      formData.age
+    )
   }
 
 }
