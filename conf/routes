@@ -122,3 +122,8 @@ GET     /posts                              controllers.PostsController.index
 # WebSocket chat application
 GET     /chat                               controllers.ChatController.index
 GET     /chat/ws                            controllers.ChatController.ws
+
+# Forms and form validation
+GET     /registrations/new                  controllers.RegistrationsController.start
+POST    /registrations                      controllers.RegistrationsController.create
+GET     /registrations/show                 controllers.RegistrationsController.show
