@@ -129,4 +129,5 @@ POST    /forms                      controllers.FormsController.create
 GET     /forms/show                 controllers.FormsController.show
 
 # User registrations
-GET     /registrations/new          controllers.RegistrationController.start
+GET     /registrations/new          controllers.RegistrationsController.start
+POST    /registrations              controllers.RegistrationsController.create

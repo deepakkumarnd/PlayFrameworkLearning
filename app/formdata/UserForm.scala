@@ -1,6 +1,6 @@
 package formdata
 
-case class RegistrationForm(
+case class UserForm(
   name: String,
   email: String,
   password: String,

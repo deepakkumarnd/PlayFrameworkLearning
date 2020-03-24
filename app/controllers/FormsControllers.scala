@@ -5,7 +5,7 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 
-import formdata.RegistrationForm
+import formdata.UserForm
 import models.User
 // Using forms and validations
 
@@ -20,7 +20,7 @@ class FormsController @Inject()(val cc: ControllerComponents) extends AbstractCo
         "password-confirmation" -> nonEmptyText(6, 30),
         "gender" -> text,
         "age" -> number(18, 120)
-      )(RegistrationForm.apply)(RegistrationForm.unapply)
+      )(UserForm.apply)(UserForm.unapply)
     )
 
   def start() = Action { implicit request: Request[AnyContent] =>
@@ -44,7 +44,7 @@ class FormsController @Inject()(val cc: ControllerComponents) extends AbstractCo
     Ok("Success")
   }
 
-  private def buildUser(formData: RegistrationForm): User = {
+  private def buildUser(formData: UserForm): User = {
     User(
       formData.email,
       "",

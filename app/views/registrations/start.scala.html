@@ -1,0 +1,15 @@
+@import formdata.RegisterForm
+
+@(form: Form[RegisterForm])(implicit header: MessagesRequestHeader)
+@main("New User Registration") {
+    <h2>New User Registration</h2>
+
+    @helper.form(action = routes.RegistrationsController.create) {
+        @helper.CSRF.formField
+        @helper.inputText(form("name"))
+        @helper.inputText(form("email"))
+        @helper.inputPassword(form("password"))
+        @helper.inputPassword(form("password_confirmation"))
+        <input type="submit" value="Register" />
+    }
+}
