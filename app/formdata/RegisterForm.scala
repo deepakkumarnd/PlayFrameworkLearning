@@ -1,0 +1,3 @@
+package formdata class RegisterForm {
+
+}
