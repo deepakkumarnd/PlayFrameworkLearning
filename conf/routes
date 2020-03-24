@@ -124,6 +124,6 @@ GET     /chat                               controllers.ChatController.index
 GET     /chat/ws                            controllers.ChatController.ws
 
 # Forms and form validation
-GET     /registrations/new                  controllers.RegistrationsController.start
-POST    /registrations                      controllers.RegistrationsController.create
-GET     /registrations/show                 controllers.RegistrationsController.show
+GET     /forms/new                  controllers.FormsController.start
+POST    /forms                      controllers.FormsController.create
+GET     /forms/show                 controllers.FormsController.show

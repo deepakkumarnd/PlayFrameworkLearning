@@ -12,7 +12,7 @@ import models.User
 // Using forms and validations
 
 @Singleton
-class RegistrationsController @Inject()(val cc: ControllerComponents) extends AbstractController(cc) with play.api.i18n.I18nSupport{
+class FormsController @Inject()(val cc: ControllerComponents) extends AbstractController(cc) with play.api.i18n.I18nSupport{
 
   val form = Form(
       mapping(
