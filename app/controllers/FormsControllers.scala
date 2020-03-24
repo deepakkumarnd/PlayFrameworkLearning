@@ -1,11 +1,9 @@
 package controllers
 
 import javax.inject._
-import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import play.api.data.validation.Constraints._
 
 import formdata.RegistrationForm
 import models.User
@@ -26,18 +24,18 @@ class FormsController @Inject()(val cc: ControllerComponents) extends AbstractCo
     )
 
   def start() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.registrations.start(form))
+    Ok(views.html.forms.start(form))
   }
 
   def create() = Action { implicit request: Request[AnyContent] =>
     form.bindFromRequest.fold(
       formWithError => {
-        BadRequest(views.html.registrations.start(formWithError))
+        BadRequest(views.html.forms.start(formWithError))
       },
       formData => {
         val user = buildUser(formData)
         println(user)
-        Redirect(routes.RegistrationsController.show())
+        Redirect(routes.FormsController.show())
       }
     )
   }

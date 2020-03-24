@@ -52,9 +52,7 @@ class BodyParserController @Inject() (
     request.session
       .get("username")
       .map { name => parse.file(new File("/tmp/" + name + ".upload")) }
-      .getOrElse {
-        sys.error("You are not logged to to do that")
-      }
+      .getOrElse { sys.error("You are not logged to to do that") }
   }
 
   def uploadFile = Action(parseFileInput) { implicit request =>

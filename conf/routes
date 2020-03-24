@@ -127,3 +127,6 @@ GET     /chat/ws                            controllers.ChatController.ws
 GET     /forms/new                  controllers.FormsController.start
 POST    /forms                      controllers.FormsController.create
 GET     /forms/show                 controllers.FormsController.show
+
+# User registrations
+GET     /registrations/new          controllers.RegistrationController.start
