@@ -9,13 +9,21 @@ import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
 import models.Registration
+import play.api.data.validation.{Constraint, Invalid, Valid, ValidationError}
+import dao.RegistrationDao
+
 
 @Singleton
-class RegistrationsController @Inject()(messageAction: MessagesActionBuilder, cc: ControllerComponents) extends AbstractController(cc) {
+class RegistrationsController @Inject()(regDao: RegistrationDao, messageAction: MessagesActionBuilder, cc: ControllerComponents) extends AbstractController(cc) {
+
+  private val emailConstraint: Constraint[String] = Constraint({ email =>
+    val inUse = regDao.emailAlreadyUsed(email)
+    if (inUse) Invalid(Seq(ValidationError("Email already taken"))) else Valid
+  })
 
   private val form = Form(mapping(
     "name" -> nonEmptyText(6, 30),
-    "email" -> email,
+    "email" -> email.verifying(emailConstraint),
     "password" -> nonEmptyText(6, 20),
     "password_confirmation" -> nonEmptyText(6, 20)
   )(RegisterForm.apply)(RegisterForm.unapply))
